@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="./scss/app.scss" />
+  <script src="./js/app.js" type="module"></script>
+</head>
+
+<body>
+
+  <div class="container__trello">
+    <header>
+      <h1>Trello clone</h1>
+      <h1 class="clock"></h1>
+    </header>
+    <section class="todo">
+      <div class="todo__title">
+        <h3>Todo: </h3>
+        <h3 class="counter">0</h3>
+      </div>
+      <ul class="todo__ul"></ul>
+      <button class="todo__btn-add" type="button" data-bs-toggle="modal" data-bs-target="#TodoAddModal">Add todo</button>
+    </section>
+    <section class="in-progress">
+      <div class="in-progress__title">
+        <h3>In Progress: </h3>
+        <h3 class="counter">0</h3>
+      </div>
+      <ul class="in-progress__ul"></ul>
+    </section>
+    <section class="done">
+      <div class="done__title">
+        <h3>Done: </h3>
+        <h3 class="counter">0</h3>
+      </div>
+      <ul class="done__ul"></ul>
+      <button type="button" class="done__btn-delete" data-bs-toggle="modal" data-bs-target="#WarningModal">Delete all</button>
+    </section>
+  </div>
+
+  <div class="modal fade" id="TodoAddModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5">Add Todo</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <form id="formAdd">
+          <div class="modal-body">
+            <div class="mb-3">
+              <input class="form-control" type="text" placeholder="Title" id="validationDefault01" name="title" required>
+            </div>
+            <div class="mb-3">
+              <textarea class="form-control" placeholder="Description" rows="4" id="validationTextarea" name="description" required></textarea>
+            </div>
+            <div class="mb-3">
+              <select class="form-select form-select-sm" id="validationDefault02" name="user" required>
+                <option selected disabled value="">Select user</option>
+              </select>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-success">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="TodoEditModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Todo</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <form id="formEdit">
+          <div class="modal-body">
+            <div class="mb-3">
+              <input class="form-control" type="text" placeholder="Title" id="validationDefault04" name="titleEdit" required>
+            </div>
+            <div class="mb-3">
+              <textarea class="form-control" placeholder="Description" rows="4" id="validationTextarea" name="descriptionEdit" required></textarea>
+            </div>
+            <div class="mb-3">
+              <select class="form-select form-select-sm" aria-label="Small select example" id="validationDefault06" name="userEdit" required>
+                <option selected disabled value="">Select user</option>
+              </select>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Save changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="WarningModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Warning</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to clear the completed tasks field?</p>
+        </div>
+        <div class="modal-footer d-flex justify-content-center">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+          <button type="button" class="btn btn-success" id="btnDeleteAll" data-bs-dismiss="modal">Yes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="ErrorModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Error</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Complete the other tasks before adding the next one</p>
+        </div>
+        <div class="modal-footer d-flex justify-content-right">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Okay</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
